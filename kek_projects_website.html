@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEK Projects - Bikin Website Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffd93d 0%, #ffb703 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            right: -5%;
+            width: 40%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1a2332;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1a2332;
+            color: #ffd93d;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(26, 35, 50, 0.4);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .devices {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .device {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .device-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot:nth-child(1) { background: #ff5f57; }
+        .dot:nth-child(2) { background: #ffbd2e; }
+        .dot:nth-child(3) { background: #28ca42; }
+
+        .device-screen {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        .screen-element {
+            background: #6c9aff;
+            height: 60px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .screen-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .screen-box {
+            background: #ffb366;
+            height: 40px;
+            flex: 1;
+            border-radius: 6px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 183, 3, 0.3);
+            border-color: #ffd93d;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffd93d, #ffb703);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: #1a2332;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #fff 0%, #fffbf0 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd93d;
+        }
+
+        .pricing-card.featured {
+            border-color: #ffb703;
+            box-shadow: 0 20px 60px rgba(255, 183, 3, 0.3);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 10px;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffb703;
+            margin-bottom: 5px;
+        }
+
+        .pricing-period {
+            color: #5a6c7d;
+            font-size: 0.9rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #28ca42;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #1a2332;
+            color: #ffd93d;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-button:hover {
+            background: #2c3e50;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 20px;
+            background: #1a2332;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd93d;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #ffd93d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-float::before {
+            content: '💬';
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .devices {
+                max-width: 350px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Bikin Website di Kami Semudah Ini</h1>
+                    <p>Mulai bisnismu sekarang dengan website profesional, cepat jadi, dan harga terjangkau!</p>
+                    <a href="#pricing" class="cta-button">Lihat Paket Kami</a>
+                </div>
+                <div class="hero-image">
+                    <div class="devices">
+                        <div class="device">
+                            <div class="device-header">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="device-screen">
+                                <div class="screen-element"></div>
+                                <div class="screen-row">
+                                    <div class="screen-box"></div>
+                                    <div class="screen-box"></div>
+                                    <div class="screen-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Kenapa Pilih Kami?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Desain Modern & Mobile-Friendly</h3>
+                    <p>Website yang responsif dan tampil sempurna di semua perangkat</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Harga Bersahabat</h3>
+                    <p>Paket yang fleksibel dan bisa disesuaikan dengan budget Anda</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Proses Cepat & Mudah</h3>
+                    <p>Cukup kirim data, website langsung jadi dalam hitungan hari</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Free Domain + Hosting</h3>
+                    <p>Domain dan hosting gratis untuk tahun pertama</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Revisi Gratis 1x Besar</h3>
+                    <p>Kami pastikan website sesuai keinginan Anda</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Support via WhatsApp</h3>
+                    <p>Tim kami siap membantu Anda kapan saja</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Pilih Paket Yang Sesuai</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Basic</div>
+                        <div class="pricing-price">50K - 100K</div>
+                        <div class="pricing-period">Landing page sederhana</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>1 Halaman landing page</li>
+                        <li>Desain template premium</li>
+                        <li>Mobile responsive</li>
+                        <li>Free domain .my.id</li>
+                        <li>Free hosting 1 tahun</li>
+                        <li>1x revisi besar</li>
+                    </ul>
+                    <button class="pricing-button" onclick="contactWhatsApp('Basic')">Pilih Paket</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Professional</div>
+                        <div class="pricing-price">250K - 350K</div>
+                        <div class="pricing-period">Website multi-halaman</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Hingga 5 halaman</li>
+                        <li>Desain custom</li>
+                        <li>Mobile responsive</li>
+                        <li>Free domain .com/.id</li>
+                        <li>Free hosting 1 tahun</li>
+                        <li>Form kontak terintegrasi</li>
+                        <li>SEO friendly</li>
+                        <li>1x revisi besar</li>
+                    </ul>
+                    <button class="pricing-button" onclick="contactWhatsApp('Professional')">Pilih Paket</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Premium</div>
+                        <div class="pricing-price">400K+</div>
+                        <div class="pricing-period">Solusi lengkap & custom</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Unlimited halaman</li>
+                        <li>Full custom design</li>
+                        <li>Dashboard admin</li>
+                        <li>Database integration</li>
+                        <li>Free domain premium</li>
+                        <li>Free hosting 1 tahun</li>
+                        <li>Fitur custom sesuai kebutuhan</li>
+                        <li>Pelayanan nomor satu</li>
+                        <li>Support prioritas</li>
+                    </ul>
+                    <button class="pricing-button" onclick="contactWhatsApp('Premium')">Pilih Paket</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Yuk, Konsultasi GRATIS Sekarang!</h2>
+            <p>Website impianmu tinggal selangkah lagi 🚀</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <span>kekprojects@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <span>0855-1234-202</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285512342020?text=Halo%20KEK%20Projects!%20Saya%20ingin%20konsultasi%20tentang%20pembuatan%20website" class="whatsapp-float" target="_blank" title="Chat WhatsApp"></a>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // WhatsApp contact function
+        function contactWhatsApp(paket) {
+            const message = `Halo KEK Projects! Saya tertarik dengan paket ${paket}. Bisa tolong berikan informasi lebih lanjut?`;
+            const whatsappURL = `https://wa.me/6285512342020?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
